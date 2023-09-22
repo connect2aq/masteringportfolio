@@ -4,9 +4,16 @@ const scroll = new LocomotiveScroll({
 });
 
 function heroSectionAnimation() {
-  gsap.from('#heroline1', { y: -400 });
-  gsap.from('#heroline2', { x: 400 });
-  gsap.from('#heroline3', { y: 400 });
+  //WITH Timelines (cleaner, more versatile)
+  //var tl = gsap.timeline({ repeat: 0, repeatDelay: 0 });
+  var tl = gsap.timeline();
+  tl.from('#heroline1', { y: -400, duration: 1 });
+  tl.from('#heroline2', { opacity: 0, x: 400, duration: 1 });
+  tl.from('#heroline3', { opacity: 0, y: 400, duration: 1 });
+
+  // gsap.from('#heroline1', { y: -400 });
+  // gsap.from('#heroline2', { x: 400 });
+  // gsap.from('#heroline3', { y: 400 });
 }
 
 function circleMouseFollow() {
